@@ -1,0 +1,189 @@
+/* =========================================
+   Blue / Grey / Black Professional Theme
+   ========================================= */
+
+:root {
+  /* Core palette */
+  --bg: #0f1115;            /* deep black-grey */
+  --surface: #1a1d22;       /* dark slate */
+  --panel: #22262c;         /* soft charcoal */
+  --border: #2f343c;        /* muted grey */
+
+  /* Accent blues */
+  --accent: #3a6ea5;        /* professional blue */
+  --accent-light: #5f9ed6;  /* lighter blue */
+  --accent-soft: #a8c7e6;   /* soft blue */
+
+  /* Text colors */
+  --text: #e9ebed;          /* light grey */
+  --text-muted: #b5bbc4;    /* muted grey */
+}
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+/* Wrapper */
+.wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: var(--accent-soft);
+  letter-spacing: 1px;
+}
+
+.hero h2 {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+}
+
+.hero-buttons .button {
+  margin: 0 0.5rem;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--accent-light);
+}
+
+/* Panels */
+.panel {
+  background: var(--panel);
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+/* Section Titles */
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--accent-soft);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.3rem;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+}
+
+ul li other {
+  padding: 0.4rem 0;
+  color: var(--text-muted);
+}
+ul li  {
+  padding: 0.4rem 0;
+  color: var(--text);
+}
+
+.experience-list {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: var(--panel);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  border-right: 1px solid var(--border);
+}
+
+.sidenav a {
+  padding: 10px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: var(--text-muted);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: var(--accent-soft);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+.footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links span {
+  margin: 0 0.5rem;
+  color: var(--text);
+}
