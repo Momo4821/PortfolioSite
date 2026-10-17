@@ -14,51 +14,56 @@
         <a href="projects.html">Projects</a>
     </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
-        <h1>Projects</h1>
+        <h1>Personal  Projects</h1>
         <br>
         <section class="panel">
             <H2> Notepad Application - Completed</H2>
             <a href ="https://momo4821.github.io/Notepad/" target="_blank" rel="noopener noreferrer">
-                (Notepad Wiki)</a>
+                Notepad Wiki</a>
                    <a href="https://github.com/Momo4821/Notepad" target="_blank" rel="noopener noreferrer">
                 Repository </a> 
-                <p>
-            <p>Developed a C#/.NET desktop application that replicates the functionality of a basic text editor. Implemented features such as file creation, opening, saving, and editing text files. Utilized Windows Forms for the user interface and incorporated error handling to manage file access issues. The application supports multiple file formats and provides a user-friendly experience for text editing tasks.</p>
-                This was the first application I built, serving as my introduction to desktop development and foundational C# concepts.
-            </section>
+                      <p><strong>Tech Stack:</strong> C#, .NET 8, WPF, Serilog</p>
+                      <br>
+           <ul class="experience-list">
+    <li>Built a custom Notepad application using <strong>.NET 8</strong> and <strong>WPF</strong>, focusing on clean UI and simple file handling.</li>
+    
+    <li>Added a <strong>Settings</strong> window that lets users switch the logging level between Information and Debug. The UI updates based on the current log level.</li>
+
+    <li>Implemented a <strong>LoggingData</strong> service using Serilog with a <strong>LoggingLevelSwitch</strong> so the app can change log levels at runtime without restarting.</li>
+
+    <li>Configured Serilog to write logs to a daily rolling file with timestamps and structured formatting.</li>
+
+    <li>Created a <strong>FileService</strong> class that tracks the current file path, file name, file type, and whether a file is loaded. It also provides a default Downloads folder path.</li>
+
+    <li>Used simple properties like <code>FileName</code>, <code>FileType</code>, and <code>HasFile</code> to keep the UI logic clean and avoid redundant state.</li>
+
+    <li>Focused on learning WPF patterns, basic MVVM ideas, and how to connect UI controls to backend logic while keeping the code easy to follow.</li>
+
+  </ul>
+    </section>
             <br>
                 <section class="panel">
                  <h2>Discord Bot – “Game News Bot” (Refactoring in Progress)</h2>       
         <a href="https://momo4821.github.io/GameNewsBotApp/" target="_blank" rel="noopener noreferrer">
                     Game News Bot Wiki </a>&nbsp;
-                    <ln>
                    <a href="https://github.com/Momo4821/GameNewsBotApp" target="_blank" rel="noopener noreferrer">
                 Repository </a> 
-                <p>
-                    Developed a C# Discord bot using
-                    DSharpPlus that retrieves game news from the Steam Web API and posts
-                    updates to designated channels. Implemented asynchronous API requests with robust
-                    null‑checking and partial‑response handling to prevent failures when the
-                    API returns incomplete or empty data. Added structured command modules,
-                    including administrator commands (Ban, Kick, etc.), and built a flexible
-                    foundation for future automated sync/polling features. Designed the bot
-                    to support manual triggers for fetching the latest news while maintaining clean architecture,
-                    async/await patterns, and defensive programming for reliability.
-                </p>
-                </section>
-
-                  <br>
-
-                <section class="panel">
-                <h2>Team ToolBox - Internal Automation Application - Completed</h2>
-                <p> Developed a C#/.NET Windows desktop tool that programmatically generates SQL and PostgreSQL scripts based on user‑supplied parameters. 
-                    Architected the solution using MVVM with strict input validation, defensive null‑checking, and support for partial or empty parameter sets.
-                Designed a clean, theme‑driven UI with visual concepts prototyped and refined using Claude AI. Applied SOLID principles, asynchronous patterns, 
-                and internal logging to ensure reliability, maintainability, and predictable behavior.
-                </p>
-                </section>
-                
                 <br>
+                
+                <p><strong>Tech Stack:</strong> C#, .NET Framework 4.8, DSharpPlus, Serilog, Steam Web API, JSON (System.Text.Json)</p>
+                <br>
+        <ul ul class="experience-list">
+        <li>Built a C# Discord bot on <strong>.NET Framework 4.8</strong> using DSharpPlus, with separate modules for basic commands, game-news commands, and admin tools.</li>
+        <li>Added commands that fetch game news (TF2, Marvel Rivals, Risk of Rain, Palworld) from the <strong>Steam Web API</strong>, parse the JSON, and post the latest titles and URLs into the correct channels.</li>
+        <li>Used <strong>async/await</strong> for API calls and learned how to parse JSON responses using <code>JsonDocument</code> and <code>EnumerateArray</code>.</li>
+        <li>Created a <strong>channel-management service</strong> that automatically creates required news channels and a moderation log channel, stores their IDs, and updates the dictionary when channels are created, deleted, or changed.</li>
+        <li>Implemented simple <strong>moderation commands</strong> (Kick, Ban, Timeout) with permission checks and validation helpers to prevent actions like kicking bots or banning yourself.</li>
+        <li>Added basic utility commands such as <strong>Ping</strong>, <strong>Greet</strong>, and <strong>BotInfo</strong>, including an embed for cleaner bot information.</li>
+        <li>Integrated <strong>Serilog</strong> for structured logging and added commands to switch log levels inside the mod-log channel.</li>
+        <li>Learned how Discord <strong>lifecycle events</strong> work (GuildAvailable, GuildCreated, ChannelCreated, ChannelUpdated, ChannelDeleted) and used them to keep channel information in sync.</li>
+         </ul>
+                </section>
+                 <br>
                 <section class="panel">
                     <h2> Budget Application - In Progress</h2>
                     <p>Building a personal finance tool that stores monthly budgets, 
@@ -71,7 +76,46 @@
                     <p>Building a real-time messaging application with a focus on user experience and performance.</p>
 
                 </section>
-                   <br>
+                   
+
+                  <br>
+                  
+
+                 <h1>Professional Projects</h1> 
+                 <br>
+                <section class="panel">
+                <h2>Team ToolBox - Internal Automation Application - Completed</h2>
+               <p><strong>Tech Stack:</strong> C#, .NET 8, Avalonia UI, CommunityToolkit.MVVM</p>
+
+  <ul class="experience-list">
+    <br>
+  <li>Built an internal support tool using Avalonia UI and a clean <strong>MVVM</strong> structure. This was my first project using MVVM, and I focused on learning how to separate views, viewmodels, and data models.</li>
+
+    <li>Developed multiple small utilities inside the application that generate <strong>SQL and PostgreSQL scripts</strong> used by engineers to help resolve production issues.</li>
+
+    <li>The tool assists with tasks such as updating configuration values, resetting data states, and improving software stability by producing scripts that follow internal patterns.</li>
+
+    <li>Each utility collects user input, formats it safely, and outputs a ready‑to‑run script to <code>C:\Scripts</code>, making repetitive support tasks faster and more consistent.</li>
+
+    <li>Used <strong>CommunityToolkit.MVVM</strong> for observable properties and relay commands, keeping the UI responsive and reducing boilerplate.</li>
+
+    <li>Created a shared data model to hold common fields and values used across multiple tools, keeping the code organized and easy to maintain.</li>
+
+    <li>Designed simple Avalonia views with user controls bound to their own viewmodels, helping me learn MVVM patterns and build a clean UI structure.</li>
+
+    <li>Focused on learning Avalonia UI patterns, MVVM concepts, and how to connect UI controls to backend logic while keeping the code easy to follow.</li>
+  </ul>
+                <br>
+                </section>
+                     <section class="panel">
+                <h2>Desktop Tool Web Migration - In Progress</h2>
+                <p>I’m expanding into front‑end development. This project is my first time working in a React/TypeScript codebase, 
+                    and I’m actively learning the ecosystem while migrating an internal C#/Avalonia desktop support tool into a web portal. 
+                    I use Claude to help reason through unfamiliar patterns and validate my understanding as I navigate.
+                </p>
+                </section>
+                
+         
 <footer>
   <p>© 2026 Malania Wilson — Resume </p>
   <p class="footer-links">
