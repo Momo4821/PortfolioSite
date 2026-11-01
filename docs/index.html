@@ -1,130 +1,626 @@
+
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Home</title>
-    <link rel='stylesheet' href="css/styles.css">
-    <script src="js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Malania Wilson - L3 application support, software development, systems troubleshooting, and technical projects.">
+
+    <title>Malania Wilson | Portfolio</title>
+
+    <style>
+        :root {
+            --background: #f7f8fa;
+            --surface: #ffffff;
+            --text: #252a34;
+            --muted: #626b78;
+            --accent: #315b85;
+            --accent-hover: #244665;
+            --border: #e2e6eb;
+            --max-width: 1050px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 90px 0 75px;
+        }
+
+        .hero-content {
+            max-width: 780px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .headline {
+            color: var(--accent);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 730px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 6px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .button:hover {
+            background: var(--accent-hover);
+            color: white;
+            text-decoration: none;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .button-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* General sections */
+
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 720px;
+            margin-bottom: 30px;
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Focus areas */
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .focus-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 25px;
+        }
+
+        .focus-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .focus-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+
+        .skills-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 28px;
+        }
+
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .skill-list {
+            color: var(--muted);
+        }
+
+        /* Projects */
+
+        .project-highlight {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 28px;
+            max-width: 750px;
+        }
+
+        .project-highlight h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-highlight p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        /* Experience */
+
+        .experience-content {
+            max-width: 780px;
+        }
+
+        .experience-content h3 {
+            font-size: 1.15rem;
+            margin-bottom: 4px;
+        }
+
+        .experience-meta {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .experience-content ul {
+            padding-left: 22px;
+            color: var(--muted);
+        }
+
+        .experience-content li {
+            margin-bottom: 9px;
+        }
+
+        /* Footer */
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 65px 0 55px;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
+
 <body>
-     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
 
-    </div>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a class="logo" href="index.html">Malania Wilson</a>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main>
 
-<h1> Welcome</h1>
-<section class="panel">
+        <!-- Welcome -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
 
-<h2>My name is Malania Wilson</h2>
-<p className="subtitle">
-<span className="subtitle-text">Seeking entry‑level roles in software engineering, support engineering, or any position that helps me grow my technical skillset.</span>
-</section>
-  
-<!-- Summary -->
-<section class="panel">
-    <h2>Sustaining Engineer</h2>  
-  <p>Senior Sustaining Engineer with hands-on software engineering experience building 
-internal tools, automating workflows, and debugging distributed systems. Skilled in API 
-troubleshooting, SQL scripting, incident response, and cross-team coordination. 
-Known for creating clear technical documentation, mentoring junior engineers, and 
-developing internal tools that improve operational efficiency. Experienced in 
-analyzing Jira cases and partnering with development teams to identify workarounds 
-and contribute technical guidance that supports the resolution of intricate production 
-issues.</p>
+                    <p class="eyebrow">Welcome to my portfolio</p>
 
-</section>
+                    <h1>Malania Wilson</h1>
 
-<section class="panel">
-    <h2>Technical Skills</h2>
-    <ul>
-        <p><strong>Programming Languages:</strong> SQL, C#, Python, HTML, CSS, Java</p>
-        <p><strong>Markup and Data Formats:</strong> XML, JSON</p>
-        <p><strong>Frameworks:</strong> .NET</p>
-        <p><strong>Databases:</strong> SQL Server, PostgreSQL</p>
-        <p><strong>Version Control:</strong> Git, GitHub</p>
-        <p><strong>Software & Tools:</strong> Microsoft Office Tools, Jira, Confluence, Microsoft Dynamics, Salesforce, Postman, SOAP UI, New Relic, Datadog, Kaseya </p>
-        <p><strong>Operating Systems:</strong> Windows, Manjaro Linux</p>
-        <p><strong>AI-Assisted Development:</strong> Microsoft Copilot, Claude, Github Copilot (Used for debugging assistance, architectural guidance, validating implementation approaches, and accelerating research.)</p>
-    </ul>
-</section>
+                    <p class="headline">
+                        L3 Support | Software Development | Systems
+                    </p>
 
-<section class="panel"> 
-    <h2>Education</h2>
-    <h3>Bachelor of Science in Computer Science</h3>
-    <p>SUNY Polytechnic Institute</p>
+                    <p class="hero-description">
+                        I'm a technical professional with experience in L3
+                        application support, production troubleshooting, and
+                        software development. I work with C#, .NET, SQL, and
+                        REST APIs, and have built internal tools to automate
+                        workflows and support production operations.
 
-<br>
-    <h3>Associate in Applied (A.A.S.) Science Computer Programming</h3>
-    <p> SUNY Sullivan</p>
-    </section>
+                        I'm interested in opportunities where I can apply
+                        my troubleshooting background while continuing to
+                        grow in software and systems engineering.
+                    </p>
 
+                    <div class="hero-buttons">
+                        <a class="button" href="projects.html">
+                            View My Projects
+                        </a>
 
-<section class="panel">
-    <h2>Experience</h2>
-    <h3>Senior Sustaining Engineer — PAR Technology</h3>
-    <p><em>2024 – Present</em></p>
+                        <a class="button button-outline"
+                           href="mailto:wilsonmcw4@gmail.com">
+                            Contact Me
+                        </a>
+                    </div>
 
-    <ul class="experience-list">
-        <li>Manage all software patch deployments and serve as the primary point of contact for related inquiries.</li>
-        <li>Train, mentor and oversee junior sustaining engineers, guiding their development and daily workload.</li>
-        <li>Reproduce customer reported and internal defects, analyze logs for any anomalies, and validate expected workflow behavior</li>
-        <li>Create technical documentation, authoring over 30 detailed guides for colleagues and lower tier support teams </li>
-        <li>Investigate and validated REST API behavior using Postman and SoapUI</li>
-        <li>Developed an internal Toolbox utility to automate SQL/PostgreSQL scripts for resolving data discrepancies and configuration errors</li>
-        <li>Serve in the on-call rotation for critical incidents, stepping into an incident-coordination role during escalations to mobilize the right teams, clarify action plans, and ensure steady progress toward resolution</li>
-    </ul>
-    <br>
+                </div>
+            </div>
+        </section>
 
-    <h3>Sustaining Engineer — PAR Technology</h3>
-    <p><em>2022 – 2024</em></p>
-    <ul class="experience-list">
-    <li>Participated in maintenance activities with DevOps, monitoring system levels and handling customer communication during service events.</li>
-    <li>Provisioned and configured new customer locations, including environment setup, API token generation, and system‑level configuration.</li>
-    <li>Created SQL queries with joins to retrieve customer‑requested data and present it in a readable format.</li>
-    <li>Performed onboarding account creation and ensured proper access configuration for new employees.</li>
-    </ul>
-    <br>
+        <hr class="section-divider">
 
-    <h3>Technical Support Specialist — PAR Technology</h3>
-    <p><em>2021 – 2022</em></p>
-    <ul class="experience-list">
-    <li>Coordinated with customer’s help desk teams to resolve incidents, deliver guidance, and maintain Jira updates.</li>
-    <li>Investigated critical and time‑sensitive issues for various store concepts such as Arby’s and Carl’s Jr.</li>
-    <li>Reviewed defect tickets with customer brand teams, explaining root causes, answering technical questions, and aligning on next steps.</li>
-    <li>Supported field installers during store deployments by guiding setup, configuration, and validation testing remotely.</li>
-    </ul>
-    <br>
+        <!-- Focus Areas -->
+        <section>
+            <div class="container">
 
-    <h3>Technical Support Agent — PAR Technology</h3>
-    <p><em>2020 – 2021</em></p>
-    <ul class="experience-list">
-    <li>Guided users through product setup, configuration, and issue resolution across multiple platforms and environments.</li>
-    <li>Provided support via phone, email, and ticketing systems such as Microsoft Dynamics.</li>
-    <li>Supported fellow technicians through Slack by providing guidance, troubleshooting tips, and clarifying technical concepts.</li>
-    <li>Coordinated with third-party networking vendors (Cisco Meraki, Fortinet, etc.) to assist in resolving customer-reported connectivity and firewall issues.</li>
-    </ul>
+                <h2 class="section-title">What I Do</h2>
 
-</section>
+                <p class="section-intro">
+                    My background combines hands-on technical support,
+                    production troubleshooting, and practical software
+                    development.
+                </p>
 
+                <div class="focus-grid">
 
+                    <div class="focus-card">
+                        <h3>Application Support</h3>
+                        <p>
+                            Troubleshoot production issues, investigate
+                            application behavior, analyze logs, and work
+                            with development teams to resolve software defects.
+                        </p>
+                    </div>
 
-<!-- Footer -->
-<footer class="footer">
-  <p>© 2026 Malania Wilson — About Me </p>
+                    <div class="focus-card">
+                        <h3>Software Development</h3>
+                        <p>
+                            Build applications and internal utilities using
+                            C# and .NET, with experience automating repetitive
+                            tasks and improving existing workflows.
+                        </p>
+                    </div>
 
-  <p class="footer-links">
-    <a href="mailto:wilsonmcw4@gmail.com">Email</a>
-    <span>•</span>
-    <a href="https://github.com/Momo4821">GitHub</a>
-    <span>•</span>
-    <a href="https://www.linkedin.com/in/malania-w-7180b2143">LinkedIn</a>
-  </p>
-</footer>
+                    <div class="focus-card">
+                        <h3>Systems & Integrations</h3>
+                        <p>
+                            Work with SQL databases, REST APIs, application
+                            configurations, and monitoring tools to
+                            troubleshoot issues across production systems.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Technical Skills -->
+        <section id="skills">
+            <div class="container">
+
+                <h2 class="section-title">Technical Skills</h2>
+
+                <p class="section-intro">
+                    Technologies and tools I've worked with through
+                    professional experience and personal projects.
+                </p>
+
+                <div class="skills-container">
+
+                    <div class="skill-group">
+                        <h3>Programming Languages</h3>
+                        <p class="skill-list">
+                            C#, SQL, Python, Java, HTML, CSS
+                        </p>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Frameworks & Data Formats</h3>
+                        <p class="skill-list">
+                            .NET, XML, JSON
+                        </p>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Databases</h3>
+                        <p class="skill-list">
+                            Microsoft SQL Server, PostgreSQL
+                        </p>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Development & API Tools</h3>
+                        <p class="skill-list">
+                            Git, GitHub, Postman, SoapUI
+                        </p>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Monitoring & Support Tools</h3>
+                        <p class="skill-list">
+                            New Relic, Datadog, Jira, Confluence,
+                            Microsoft Dynamics, Salesforce, Kaseya
+                        </p>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>AI-Assisted Development</h3>
+                        <p class="skill-list">
+                            Claude, GitHub Copilot, ChatGPT
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Projects -->
+        <section>
+            <div class="container">
+
+                <h2 class="section-title">Featured Project</h2>
+
+                <p class="section-intro">
+                    A selection of my development work, including personal
+                    applications and tools created to solve practical
+                    technical problems.
+                </p>
+
+                <div class="project-highlight">
+
+                    <h3>Team ToolBox – Internal Automation Application</h3>
+
+                    <p>
+                        Developed an internal C#/.NET application with
+                        utilities for generating SQL Server and PostgreSQL
+                        scripts. The tool helps automate repetitive support
+                        tasks involving configuration changes and data
+                        corrections.
+                    </p>
+
+                    <a href="projects.html">
+                        Explore my projects →
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="container">
+
+                <h2 class="section-title">Professional Experience</h2>
+
+                <p class="section-intro">
+                    My professional background is rooted in application
+                    support, production operations, and collaboration
+                    with software development teams.
+                </p>
+
+                <div class="experience-content">
+
+                    <h3>Senior Sustaining Engineer — PAR Technology</h3>
+
+                    <p class="experience-meta">
+                        2024 – Present
+                    </p>
+
+                    <ul>
+                        <li>
+                            Troubleshoot production issues involving
+                            application logs, SQL, REST APIs, and
+                            distributed system behavior.
+                        </li>
+
+                        <li>
+                            Develop internal C#/.NET tools to automate
+                            SQL and PostgreSQL scripting for production
+                            support tasks.
+                        </li>
+
+                        <li>
+                            Reproduce software defects, investigate
+                            unexpected behavior, and validate fixes.
+                        </li>
+
+                        <li>
+                            Support patch operations, incident response,
+                            and technical documentation while mentoring
+                            junior team members.
+                        </li>
+                    </ul>
+
+                    <p style="margin-top: 22px;">
+                        <a href="projects.html">
+                            View my technical projects →
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+
+            <div class="footer-links">
+                <a href="mailto:wilsonmcw4@gmail.com">Email</a>
+
+                <a href="https://github.com/Momo4821"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/malania-wilson-7180b2143/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </div>
+
+            <p>
+                © 2026 Malania Wilson — Portfolio
+            </p>
+
+        </div>
+    </footer>
+
 </body>
 </html>
